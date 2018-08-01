@@ -1,0 +1,31 @@
+<div id="car">
+    <h2>Carros de Agencia</h2>
+    <input type="text" name="model" id="model" placeholder="Modelo" required/>
+    <select name="marc">
+        <option value="0">--Marca--</option> 
+        <option *ngFor="let brand of brands | async" value="{{ brand.name }}">{{ brand.name }}</option> 
+    </select>
+    <select name="type">
+        <option value="1">--Versión--</option> 
+        <option value="2">Hatchback</option> 
+        <option value="3">Pick up</option> 
+        <option value="4">SUV</option>
+        <option value="5">Sedan</option> 
+        <option value="5">#</option> 
+        <option value="7">#</option> 
+    </select>  
+    <select name="place">
+        <option value="1">--Plazo--</option> 
+        <option value="2">12 meses</option> 
+        <option value="3">24 meses</option> 
+        <option value="4">36 meses</option>
+        <option value="5">#</option> 
+        <option value="6">#</option> 
+        <option value="7">#</option> 
+    </select> 
+    <input type="text" name="precio" id="precio" placeholder="$ Mensualidad" required/>
+    <input type="text" name="precio" id="precio" placeholder="Tasa Minima" required/>
+    <input type="text" name="precio" id="precio" placeholder="$ Precio" required/>
+
+    <input type="submit" name="submit" id="submit" value="Agregar Auto Nuevo">
+</div>

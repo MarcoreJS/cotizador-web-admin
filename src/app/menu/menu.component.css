@@ -1,0 +1,55 @@
+/*Nav-Bar*/
+.nav{
+    position: absolute;
+    top: 0em;
+    width: 100%;
+    width: -moz-available;
+    background:#1a3874; 
+
+}
+
+.nav ul{
+    list-style: none;
+}
+
+.menu > li{
+    position: relative;
+    display: inline-block;
+}
+
+.menu >li>a{
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+.menu li a:hover{
+    color: #575555;
+    transition: 0.3s all;
+}
+
+/*submenu*/
+.sub-nav{
+    position: absolute;
+    background: #1a3874;
+    width: 170%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
+
+}
+
+.sub-nav li a{
+    display: block;
+    padding: 15px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+.menu li:hover .sub-nav{
+    visibility: visible;
+    opacity: 1;
+}

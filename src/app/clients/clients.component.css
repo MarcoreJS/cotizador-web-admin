@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    /*background: url(../img/fondo2.jpg) no-repeat fixed center center #095dfa;
+    background-size: cover;
+    color: #095dfa;*/
+    font-family: 'Montserrat', sans-serif;
+    
+}
