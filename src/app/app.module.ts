@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 
@@ -10,6 +11,10 @@ import { MenuComponent } from './menu/menu.component';
 import { ViewNewCarsComponent } from './view-new-cars/view-new-cars.component';
 import { AngularFireDatabase } from '../../node_modules/angularfire2/database';
 import { ClientsComponent } from './clients/clients.component';
+import { LoginComponent } from './login/login.component';
+import { EmailComponent } from './email/email.component';
+import { SignupComponent } from './signup/signup.component';
+import { AngularFireAuth } from '../../node_modules/angularfire2/auth';
 
 
 @NgModule({
@@ -18,15 +23,20 @@ import { ClientsComponent } from './clients/clients.component';
     NewCarsComponent,
     MenuComponent,
     ViewNewCarsComponent,
-    ClientsComponent
+    ClientsComponent,
+    LoginComponent,
+    EmailComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     appRouting,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
   ],
   providers: [
-    AngularFireDatabase
+    AngularFireDatabase,
+    AngularFireAuth
   ],
   bootstrap: [AppComponent]
 })

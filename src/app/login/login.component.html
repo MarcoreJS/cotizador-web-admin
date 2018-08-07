@@ -1,0 +1,27 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<h1>Mi Cotizador</h1>
+<div id="card" class="">
+  <h2>Sign-in</h2>
+  <span class="error" *ngIf="error">{{ error }}</span>
+  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+    <i class="material-icons" style="position: relative; left: -28px; top: 36px;">mail</i>
+    <input (ngModel)="email" type="text" id="email" name="email" placeholder="Correo" required/>
+
+    <i class="material-icons" style="position: relative; left: -55px; top: 80px;">https</i>
+    <input (ngModel)="password" type="password" id="password" name="password" placeholder="Contraseña" required/>
+
+    <input type="submit" name="submit" [disabled]="!formData.valid" class="basic-btn" value="Iniciar Sesión">
+  </form>
+
+  
+  <input type="submit" name="submit" value="Registrar" />
+
+</div>
+
+<div id="up">
+  <h2>Ingresar con...</h2>
+  <input type="submit" name="submit" value="Facebook" />
+  <input type="submit" name="submit" value="Google" />
+</div>
+<img src="img/logo.jpeg" alt="rines">

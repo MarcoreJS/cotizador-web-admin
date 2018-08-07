@@ -1,31 +1,42 @@
 <div id="car">
     <h2>Carros de Agencia</h2>
-    <input type="text" name="model" id="model" placeholder="Modelo" required/>
-    <select name="marc">
-        <option value="0">--Marca--</option> 
-        <option *ngFor="let brand of brands | async" value="{{ brand.name }}">{{ brand.name }}</option> 
-    </select>
-    <select name="type">
-        <option value="1">--Versión--</option> 
-        <option value="2">Hatchback</option> 
-        <option value="3">Pick up</option> 
-        <option value="4">SUV</option>
-        <option value="5">Sedan</option> 
-        <option value="5">#</option> 
-        <option value="7">#</option> 
-    </select>  
-    <select name="place">
-        <option value="1">--Plazo--</option> 
-        <option value="2">12 meses</option> 
-        <option value="3">24 meses</option> 
-        <option value="4">36 meses</option>
-        <option value="5">#</option> 
-        <option value="6">#</option> 
-        <option value="7">#</option> 
-    </select> 
-    <input type="text" name="precio" id="precio" placeholder="$ Mensualidad" required/>
-    <input type="text" name="precio" id="precio" placeholder="Tasa Minima" required/>
-    <input type="text" name="precio" id="precio" placeholder="$ Precio" required/>
+    <div *ngIf="currentUpload">
+        <div class="progress">
+            <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+        </div>
+        Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+    </div>
 
-    <input type="submit" name="submit" id="submit" value="Agregar Auto Nuevo">
+    <label>
+        <input type="file" (change)="detectFiles($event)">
+    </label>
+
+    <input [(ngModel)]="new_car.modelo" type="text" placeholder="Modelo" required/>
+    <input [(ngModel)]="new_car.version" type="text" placeholder="Version" required/>
+    <select [(ngModel)]="new_car.marca" name="marc">
+        <option value="0">--Marca--</option>
+        <option *ngFor="let brand of brands | async" value="{{ brand.name }}">{{ brand.name }}</option>
+    </select>
+    <select [(ngModel)]="new_car.tipo" name="type">
+        <option value="0">--Tipo--</option>
+        <option value="HB">Hatchback</option>
+        <option value="pick up">Pick up</option>
+        <option value="SUV">SUV</option>
+        <option value="sedan">Sedan</option>
+    </select>
+    <select [(ngModel)]="new_car.plazo_max" name="place">
+        <option value="0">--Plazo--</option>
+        <option value="12">12 meses</option>
+        <option value="24">24 meses</option>
+        <option value="36">36 meses</option>
+        <option value="48">48 meses</option>
+        <option value="60">60 meses</option>
+        <option value="72">72 meses</option>
+    </select>
+    <input [(ngModel)]="new_car.enganche_minimo" type="text" placeholder="$ Enganche minimo" required/>
+    <input [(ngModel)]="new_car.mensualidad_min" type="text" placeholder="$ Mensualidad minima" required/>
+    <input [(ngModel)]="new_car.tasa_min" type="text" placeholder="Tasa Minima" required/>
+    <input [(ngModel)]="precio" type="text" placeholder="$ Precio" required/>
+
+    <input (click)="saveNewCar()" [disabled]="!selectedFiles" type="submit" name="submit" id="submit" value="Agregar Auto Nuevo">
 </div>

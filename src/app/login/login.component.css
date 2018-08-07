@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 0;
+}
+img{
+    width: 374px;
+    position: absolute;
+    left: 16em;
+    top: 156px;
+}
+body{
+    color: #095dfa;
+    background: whitesmoke;
+    position: inherit;
+}
+#card{
+    width: 220px;
+    margin-top: 0.3em;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 51em;
+}
+#up{
+    width: 220px;
+    margin-top: 22em;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 51em;
+    top: -6em;
+}
+#card h2{
+    text-shadow: 0 1px 0 #095dfa;
+    font-size: 1.63em;
+    color: #095dfa;
+    display: block;
+    width: 213%;
+    padding-bottom: .4em;
+    margin-bottom: -0.4em;
+    border-bottom: 2px solid #095dfa;
+    margin-top: 2em;
+    font-family: 'Montserrat', sans-serif;
+}
+#up h2{
+    text-shadow: 0 1px 0 #095dfa;
+    font-size: 1.63em;
+    color: #095dfa;
+    display: block;
+    width: 213%;
+    padding-bottom: .4em;
+    margin-bottom: .6em;
+    border-bottom: 2px solid #095dfa;
+    font-family: 'Montserrat', sans-serif;
+}
+input[type="text"],
+input[type="password"],
+input[type="submit"]{
+    clear: both;
+    float: left;
+    display: block;
+    border: 1px solid #ccc;
+    background: #ebebeb;
+    margin: 6px 0;
+    padding: 4px 10px;
+    width: 200%;
+    height: 34px;
+    outline: 0;
+    color: #34495e;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 2em;
+}
+input[type=submit]{
+    background: #034dd6;
+    color: #ecf0f1;
+    border: 0;
+    border-bottom: 2px solid #095dfa;
+    margin: 10px 0 0;
+    font-family: 'Montserrat', sans-serif;
+}
+input[type=text]:not([value*=" "]):active,
+input[type=text]:not([value*=" "]):focus,
+input[type=password]:not([value*=" "]):active,
+input[type=password]:not([value*=" "]):focus{
+    -webkit-box-shadow: inset 8px 0px 0  #095dfa;
+    -moz-box-shadow: inset 8px 0px 0  #095dfa;
+    box-shadow: inset 8px 0px 0  #095dfa;
+}
+input[type=submit]:active,
+input[type=submit]:focus {
+    background: #095dfa59;
+    color: #ecf0f1;
+    border: 0;
+    position: relative;
+    top: 1px;
+    border-bottom: 1px solid;
+}
+input[value*="Facebook"] {
+    background: #01236e;
+    border-color: #1f4189;
+    width: 200%;
+    float: left;
+    clear: none;
+    margin-left: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+input[value*="Google"] {
+    background: red;
+    border-color: red;
+    width: 200%;
+    float: left;
+    clear: none;
+    font-family: 'Montserrat', sans-serif;
+}
+input[value*="Facebook"]:active,
+input[value*="Facebook"]:focus {
+    color: #1f4189;
+    background: #ecf0f1;
+}
+input[value*="Google"]:active,
+input[value*="Google"]:focus {
+    color: red;
+    background: #ecf0f1;
+}
