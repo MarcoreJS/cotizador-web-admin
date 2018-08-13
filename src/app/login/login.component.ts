@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   error: any;
+  email: any;
+  password: any;
 
   constructor(
     private afa: AngularFireAuth,
