@@ -6,11 +6,11 @@ const app = express();
 
 // Serve only the static files form the dist directory
 
-app.use(express.static('/dist/CotizadorWebAdmin'));
+app.use(express.static('dist/CotizadorWebAdmin'));
 
 app.get('/*', function (req, res) {
 
-    res.sendFile(path.join('/dist/CotizadorWebAdmin/index.html'));
+    res.sendFile(path.join('dist/CotizadorWebAdmin/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
