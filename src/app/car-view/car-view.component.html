@@ -1,0 +1,29 @@
+
+<div *ngIf="car" class="card">
+    <img src="{{ car.img }}" alt="Avatar" style="width:100%">
+    <div class="container">
+        <h4>
+            <b>{{ car.marca }} {{ car.modelo }} {{ car.version }}</b>
+        </h4>
+        <h4>
+            <b>Precio de Contado:</b>
+        </h4>
+        <p>$ {{ car.precio[0] }} MXN</p>
+        <h4>
+            <b>Enganche desde:</b>
+        </h4>
+        <p>$ {{ car.enganche_minimo }} MXN</p>
+        <h4>
+            <b>Mensualidad desde:</b>
+        </h4>
+        <p>$ {{ car.mensualidad_min }} MXN</p>
+        <h4>
+            <b>Plazo Maximo:</b>
+        </h4>
+        <p>{{ car.plazo_max }}</p>
+        <h4>
+            <b>Tasa de interes desde:</b>
+        </h4>
+        <p>{{ car.tasa_min }} %</p>
+    </div>
+</div>

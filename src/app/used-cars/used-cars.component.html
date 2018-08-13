@@ -1,0 +1,23 @@
+<h1>Vehículos Semi-Nuevos</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Marca</th>
+      <th>Versión</th>
+      <th>Año</th>
+      <th>Kilometraje</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+    <tbody *ngFor="let car of cars | async">
+      <!--Cuerpo de la tabla-->
+      <td>{{ car.modelo }}</td>
+      <td>{{ car.marca_seminuevo }}</td>
+      <td>{{ car.version }}</td>
+      <td>{{ car.anio }}</td>
+      <td>{{ car.kilometros }}</td>
+      <td> $ {{ car.precio_contado }} MXN</td>
+    </tbody>
+ 
+</table>

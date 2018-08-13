@@ -1,0 +1,45 @@
+<div id="car">
+  <h2>Carros Semi-Nuevos</h2>
+
+  <div *ngIf="currentUpload">
+    <div class="progress">
+      <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+    </div>
+    Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+  </div>
+
+  <label>
+    <input type="file" (change)="detectFiles($event)">
+  </label>
+
+  <input [(ngModel)]="new_car.modelo" type="text" placeholder="Modelo" required/>
+  <select [(ngModel)]="new_car.marca_seminuevo" name="marc">
+    <option value="0">--Marca--</option>
+    <option *ngFor="let brand of brands | async" value="{{ brand.name }}">{{ brand.name }}</option>
+  </select>
+
+  <input [(ngModel)]="new_car.version" type="text" placeholder="Version" required/>
+  <input [(ngModel)]="new_car.anio" type="text" placeholder="Año" required/>
+  <input [(ngModel)]="new_car.kilometros" type="text" placeholder="Kilometraje" required/>
+  <input [(ngModel)]="new_car.precio_contado" type="text" placeholder="Precio" required/>
+  <input [(ngModel)]="new_car.cilindros" type="text" placeholder="Cilindros" required/>
+
+  <select [(ngModel)]="new_car.tipo" name="type">
+    <option value="0">--Tipo--</option>
+    <option value="HB">Hatchback</option>
+    <option value="pick up">Pick up</option>
+    <option value="SUV">SUV</option>
+    <option value="sedan">Sedan</option>
+  </select>
+  <select [(ngModel)]="new_car.titulo" name="tittle">
+    <option value="0">--Título--</option>
+    <option value="nacional">Nacional</option>
+    <option value="extranjero">Extranjero</option>
+  </select>
+  <select [(ngModel)]="new_car.transmision" name="transmition">
+    <option value="1">--Transmisión--</option>
+    <option value="TM">Manual</option>
+    <option value="TA">Automático</option>
+  </select>
+  <input (click)="saveNewCar()" [disabled]="!selectedFiles" type="submit" name="submit" id="submit" value="Agregar Auto Semi-Nuevo">
+</div>

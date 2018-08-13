@@ -9,11 +9,11 @@
       <th>Precio</th>
     </tr>
   </thead>
-    <tbody *ngFor="let car of cars | async">
-      <td>{{ car.modelo }}</td>
-      <td>{{ car.marca }}</td>
-      <td>{{ car.version }}</td>
-      <td>{{ car.tipo }}</td>
-      <td>$ {{ car.precio[0] }} MXN</td>
+    <tbody (click)="viewCar(car.key)" *ngFor="let car of cars | async">
+      <td>{{ car.payload.val().modelo }}</td>
+      <td>{{ car.payload.val().marca }}</td>
+      <td>{{ car.payload.val().version }}</td>
+      <td>{{ car.payload.val().tipo }}</td>
+      <td>$ {{ car.payload.val().precio[0] }} MXN</td>
     </tbody>
 </table>

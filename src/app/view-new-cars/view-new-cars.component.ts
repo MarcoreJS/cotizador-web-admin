@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-new-cars',
@@ -12,12 +13,18 @@ export class ViewNewCarsComponent implements OnInit {
   cars: Observable<any[]>;
 
   constructor(
-    db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private router: Router
   ) {
-    this.cars = db.list('cars').valueChanges();
+    this.cars = this.db.list('cars').snapshotChanges();
+  
    }
 
   ngOnInit() {
+  }
+
+  viewCar(car_key: string) {
+    this.router.navigate([car_key + '/car']);
   }
 
 }

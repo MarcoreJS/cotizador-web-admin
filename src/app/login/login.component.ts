@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     if (formData.valid) {
 
       this.afa.auth.signInWithEmailAndPassword(
-        String(formData.value.mail),
+        String(formData.value.email),
         formData.value.password
       ).then(
         (success) => {

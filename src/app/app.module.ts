@@ -15,6 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { EmailComponent } from './email/email.component';
 import { SignupComponent } from './signup/signup.component';
 import { AngularFireAuth } from '../../node_modules/angularfire2/auth';
+import { UsedCarsComponent } from './used-cars/used-cars.component';
+import { AddUsedCarComponent } from './add-used-car/add-used-car.component';
+import { CarViewComponent } from './car-view/car-view.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { AngularFireAuth } from '../../node_modules/angularfire2/auth';
     ClientsComponent,
     LoginComponent,
     EmailComponent,
-    SignupComponent
+    SignupComponent,
+    UsedCarsComponent,
+    AddUsedCarComponent,
+    CarViewComponent
   ],
   imports: [
     BrowserModule,

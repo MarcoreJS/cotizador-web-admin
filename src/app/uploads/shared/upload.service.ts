@@ -10,6 +10,7 @@ import 'firebase/storage' // <- add
 export class UploadService {
 
   basePath = 'cars';
+  semiPath = 'seminuevos';
   contador_galeria: any;
 
   constructor(
@@ -43,9 +44,39 @@ export class UploadService {
       },
     );
   }
+  pushSemiUpload(upload: Upload, car: any) {
+    const storageRef = firebase.storage().ref();
+    const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
+    this.contador_galeria = 0;
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot: firebase.storage.UploadTaskSnapshot) => {
+        // upload in progress
+        const snap = snapshot;
+        upload.progress = (snap.bytesTransferred / snap.totalBytes) * 100
+      },
+      (error) => {
+        // upload failed
+        console.log(error);
+        return error
+      },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+          upload.url = downloadURL;
+          upload.name = upload.file.name;
+          this.saveSemiFileData(upload, car);
+        });
+      
+      },
+    );
+  }
 
   private saveFileData(upload: Upload, car: any) {
     car.img = upload.url;
     this.db.list(`${this.basePath}/`).push(car);
+  }
+
+  private saveSemiFileData(upload: Upload, car: any) {
+    car.img = upload.url;
+    this.db.list(`${this.semiPath}/`).push(car);
   }
 }
